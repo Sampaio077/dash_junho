@@ -1,0 +1,12 @@
+streamlit
+pandas
+plotly
+requests
+wordcloud
+matplotlib
+seaborn
+wordcloud
+plotly.express
+json
+os
+matplotlib.pyplot 

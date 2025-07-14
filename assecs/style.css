@@ -1,0 +1,566 @@
+/* style.css - CSS atualizado e mais robusto */
+
+/* =============================== */
+/* Variáveis Globais de Cores     */
+/* =============================== */
+:root {
+  --primary-color: #004D7F;
+  /* Dark blue from the "MOSELE" text */
+  --secondary-color: #F0F4F7;
+  /* Light background color from the image */
+  --background-color: #E6EEF5;
+  /* A softer light background */
+  --card-background: #FFFFFF;
+  /* White for cards, matching the image background */
+  --text-color: #2F3645;
+  /* Darker text for readability on light backgrounds */
+  --light-text-color: #555A68;
+  /* Slightly lighter text */
+  --border-color: #CDD5DB;
+  /* A soft gray for borders */
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  /* Lighter shadow */
+  --accent-color: #007BFF;
+  /* A brighter blue, derived from the logo */
+
+  --status-red: #DC3545;
+  /* Standard red, adjusted for contrast */
+  --status-yellow: #FFC107;
+  /* Standard yellow */
+  --status-green: #28A745;
+  /* Standard green */
+  --status-gray: #6C757D;
+  /* Standard gray */
+  --status-blue: #007BFF;
+  /* Matching accent blue for info status */
+
+  /* Cores para Gráficos */
+  --chart-bar-color-1: var(--primary-color);
+  --chart-bar-color-2: var(--accent-color);
+  --chart-text-color: var(--text-color);
+  --chart-grid-color: var(--border-color);
+}
+.kpi-gray {
+    background-color: #e5e7eb; /* cinza claro */
+    color: #374151; /* texto escuro */
+}
+/* =============================== */
+/* Estilo Base da Página          */
+/* =============================== */
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.6;
+}
+
+[data-testid="stAppViewContainer"] {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+[data-testid="stHeader"] {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* =============================== */
+/* Sidebar                        */
+/* =============================== */
+[data-testid="stSidebar"] {
+  background: var(--primary-color);
+  /* Fundo da sidebar agora é o azul mais escuro */
+  border-right: 1px solid var(--border-color);
+  box-shadow: 2px 0 10px var(--shadow-color);
+}
+
+[data-testid="stSidebarContent"] {
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+/* Seletor correto para o título da sidebar (st.sidebar.title) */
+[data-testid="stSidebarTitle"] {
+  color: white;
+  /* ALTERADO: Cor do título para BRANCO para melhor contraste */
+  font-size: 2.2em;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid var(--card-background);
+  /* Linha abaixo do título para branco */
+  /* REMOVIDO: text-shadow para melhorar a visibilidade */
+}
+
+/* Estilos específicos para linhas horizontais NA SIDEBAR */
+[data-testid="stSidebar"] hr {
+  border-top: 1px solid var(--card-background);
+  /* Usar branco (ou uma cor clara) para contraste */
+  margin-top: 1rem;
+  /* Ajuste o espaçamento superior */
+  margin-bottom: 1rem;
+  /* Ajuste o espaçamento inferior */
+}
+
+/* =============================== */
+/* Painel do Relatório Inteligente */
+/* =============================== */
+.intelligent-report {
+  background-color: var(--card-background);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  margin-bottom: 30px;
+}
+
+.intelligent-report h2 {
+  color: var(--primary-color);
+  font-size: 28px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.intelligent-report h4 {
+  font-size: 18px;
+  margin-top: 25px;
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+.intelligent-report p,
+.intelligent-report ul {
+  margin-left: 20px;
+  font-size: 1em;
+  color: var(--text-color);
+}
+
+.intelligent-report ul li {
+  margin-bottom: 8px;
+}
+
+.intelligent-report ul ul {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.intelligent-report strong {
+  color: var(--primary-color);
+}
+
+.intelligent-report .highlight {
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.intelligent-report .emoji {
+  font-size: 1.2em;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+
+/* =============================== */
+/* Expanders                      */
+/* =============================== */
+[data-testid="stExpander"] summary {
+  background-color: var(--secondary-color);
+  /* Fundo do expander na sidebar para secondary-color */
+  color: var(--primary-color);
+  /* Texto do expander na sidebar para primary-color */
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+[data-testid="stExpander"] summary:hover {
+  background-color: var(--background-color);
+  /* Ajustado para um hover mais suave */
+  transform: translateY(-2px);
+}
+
+[data-testid="stExpander"]>div:nth-child(2) {
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-left: 2px solid var(--card-background);
+  /* Borda do expander para branco */
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+/* =============================== */
+/* Inputs e Widgets (Multiselect) */
+/* =============================== */
+.stMultiSelect>div {
+  background-color: var(--card-background);
+  /* Fundo do multiselect para branco */
+  color: var(--text-color);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: border-color 0.3s;
+}
+
+.stMultiSelect>div:hover {
+  border-color: var(--primary-color);
+}
+
+.stMultiSelect div[data-baseweb="tag"] {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.85em;
+  margin: 2px;
+}
+
+.stMultiSelect div[data-baseweb="tag"] span[data-baseweb="button"] {
+  color: white;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.stMultiSelect div[data-baseweb="tag"] span[data-baseweb="button"]:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+[data-baseweb="popover"]>div {
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+[data-baseweb="popover"] li {
+  padding: 0.5rem 1rem;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  transition: background-color 0.2s ease;
+}
+
+[data-baseweb="popover"] li:hover {
+  background-color: var(--secondary-color);
+  /* Adjusted for new colors */
+}
+
+[data-baseweb="popover"] li[aria-selected="true"] {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.stDateInput input {
+  background-color: var(--card-background);
+  /* Fundo do date input para branco */
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  border-radius: 8px;
+}
+
+.stCheckbox label {
+  color: var(--card-background);
+  /* Cor do texto do checkbox para branco */
+  font-size: 0.95em;
+  display: flex;
+  align-items: center;
+}
+
+/* For checkboxes inside the sidebar, make text white */
+[data-testid="stSidebar"] .stCheckbox label {
+  color: white;
+}
+
+
+/* =============================== */
+/* Alertas                         */
+/* =============================== */
+.stAlert {
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stAlert.info {
+  background-color: rgba(0, 123, 255, 0.1);
+  /* Using accent blue */
+  border-left: 5px solid var(--status-blue);
+  color: var(--text-color);
+}
+
+.stAlert.warning {
+  background-color: rgba(255, 193, 7, 0.1);
+  border-left: 5px solid var(--status-yellow);
+  color: var(--text-color);
+}
+
+.stAlert.success {
+  background-color: rgba(40, 167, 69, 0.1);
+  border-left: 5px solid var(--status-green);
+  color: var(--text-color);
+}
+
+.stAlert.error {
+  background-color: rgba(220, 53, 69, 0.1);
+  border-left: 5px solid var(--status-red);
+  color: var(--text-color);
+}
+
+/* =============================== */
+/* Tipografia e Separadores       */
+/* =============================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Estilo para todas as outras linhas HR (fora da sidebar) */
+hr {
+  border-top: 1px solid var(--border-color);
+  /* Uma cor cinza suave para outras linhas */
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* =============================== */
+/* KPIs e Badges                  */
+/* =============================== */
+.kpi-card {
+  background: var(--card-background);
+  /* Changed to solid background */
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+}
+
+.kpi-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  /* Adjusted shadow on hover */
+}
+
+.kpi-value {
+  font-size: 2.2em;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.kpi-title {
+  font-size: 0.9em;
+  color: var(--light-text-color);
+  /* Adjusted for readability on light backgrounds */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kpi-red {
+  border-left: 5px solid var(--status-red);
+}
+
+.kpi-yellow {
+  border-left: 5px solid var(--status-yellow);
+}
+
+.kpi-green {
+  border-left: 5px solid var(--status-green);
+}
+
+.kpi-blue {
+  border-left: 5px solid var(--status-blue);
+}
+
+/* New class for info KPIs */
+
+.kpi-red .kpi-value {
+  color: var(--status-red);
+}
+
+.kpi-yellow .kpi-value {
+  color: var(--status-yellow);
+}
+
+.kpi-green .kpi-value {
+  color: var(--status-green);
+}
+
+.kpi-blue .kpi-value {
+  color: var(--status-blue);
+}
+
+/* Value color for info KPIs */
+
+/* =============================== */
+/* Seções de Relatório e Gráficos */
+/* =============================== */
+.report-section,
+.chart-card {
+  background: var(--card-background);
+  /* Changed to solid background */
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 0 12px var(--shadow-color);
+  border: 1px solid var(--border-color);
+}
+
+.chart-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.report-badges-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.report-badge {
+  background-color: var(--background-color);
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 0.95em;
+  font-weight: 500;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-grow: 1;
+  min-width: 250px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Lighter shadow */
+}
+
+.report-badge-success {
+  border-left: 5px solid var(--status-green);
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+.report-badge-warning {
+  border-left: 5px solid var(--status-yellow);
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.report-badge-error {
+  border-left: 5px solid var(--status-red);
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.report-badge-info {
+  border-left: 5px solid var(--status-blue);
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* =============================== */
+/* Botões e Rodapé                */
+/* =============================== */
+.stButton>button {
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.stButton>button:hover {
+  background-color: #0056b3;
+  /* Darker shade of accent blue on hover */
+}
+
+.footer-text {
+  /* Corrigido: Removido o ':' extra */
+  text-align: center;
+  color: var(--light-text-color);
+  /* Adjusted for new color scheme */
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-color);
+}
+
+/* =============================== */
+/* Dataframe                      */
+/* =============================== */
+div[data-testid="stDataFrame"] {
+  /* Corrigido: Removido o ':' extra */
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border-radius: 12px;
+  /* Added border-radius for consistency */
+  border: 1px solid var(--border-color);
+  /* Added border for consistency */
+}
+
+/* Estilos mais específicos para a tabela */
+div[data-testid="stDataFrame"] table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+div[data-testid="stDataFrame"] th {
+  background-color: var(--secondary-color);
+  /* Using secondary for header background */
+  color: var(--primary-color);
+  /* Corrigido: 'colo' para 'color' */
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+  font-weight: bold;
+}
+
+div[data-testid="stDataFrame"] td {
+  background-color: var(--card-background);
+  color: var(--text-color);
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+div[data-testid="stDataFrame"] tr:nth-child(even) td {
+  background-color: var(--secondary-color);
+  /* Alternating row background for readability */
+}
+
+div[data-testid="stDataFrame"] .row-hover:hover {
+  background-color: var(--border-color);
+  /* Hover effect for rows */
+}

@@ -1,12 +1,8 @@
 streamlit
 pandas
 plotly
-requests
-wordcloud
+numpy
 matplotlib
 seaborn
 wordcloud
-plotly.express
-json
-os
-matplotlib.pyplot 
+requests

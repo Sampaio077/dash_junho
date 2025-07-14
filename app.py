@@ -96,12 +96,12 @@ st.markdown(
 with st.sidebar:
     st.markdown(
         """
-        <div style="text-align: center; margin: 0.5rem 0 1rem;">
+        <div style="text-align: center; margin: 1.5rem 0 2rem;">
             <h2 style="
                 color: #FFFFFF;
                 font-family: 'Segoe UI', sans-serif;
                 font-size: 1.5rem;
-                font-weight: 100;
+                font-weight: 700;
                 margin-bottom: 0.2rem;
             ">T.I MOSELE</h2>
             <p style="
@@ -111,10 +111,11 @@ with st.sidebar:
                 margin: 0;
             ">Tecnologia e Inovação</p>
         </div>
-        <hr style="border: 0; height: 1px; background-color: #ffffff33; margin: 0.8rem 0;">
+        <hr style='border: 0; height: 1px; background-color: #ffffff33; margin: 0.8rem 0;'>
         """,
         unsafe_allow_html=True
     )
+
 
 
 
